@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Inclusive Form Flow</title><link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header class="page-header">
+            <p class="eyebrow">Application </p>
+            <h1>Submit a request for Temperature Data</h1>
+            <p class="lede">This form is for submitting request on temperatures based on your area in phoenix. This is for data collection where we are analyzing if temperatures are within expected ranges which in turn leads to better understanding of urban heat effect and climate change.</p>
+        </header>
+        <main>
+            <section id="expectations">
+                <h2>F1 · Purpose and Expectations</h2>
+                <p> This form is completely optional and is at the users discretion on completing this form. The email field, location, and text option are all required for this form. The name is completely optional as responses are anonymous. If you have any issues completing this form please contact helpsupport@gmail.com. The result of this form will be used for presentation and aggregation purposes. If you ever feel you were put at risk due to this form, please contact the chair of the human subjects board.   </p>
+            </section>
+            <form action="" method="get">
+                <fieldset>
+                    <legend>F3 · Contact information</legend>
+                    <p class="help">Please provide your contact information. Name is optional.</p>
+                    <div class="field">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" type="text" autocomplete="name">
+                    </div>
+                    <div class="field">
+                        <label for="email">Email address (required)</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required >
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>F3 · Request choices</legend>
+                    <p class="help">Use an appropriate radio, checkbox, or select structure for the task.</p>
+                    <label class="choice">
+                        <input type="radio" name="request_type" value="option-a"> Request Temperature Data</label>
+                        <label class="choice"><input type="radio" name="request_type" value="option-b"> Request Additional Information</label>
+                    </fieldset>
+                    <div class="field">
+                        <label for="details">Request details</label>
+                        <p class="help" id="details-help">Explain the expected content and any limit before entry.</p>
+                        <textarea id="details" name="details" aria-describedby="details-help"></textarea>
+                    </div>
+                    <button type="submit">Submit Request</button>
+                </form>
+                <section id="states">
+                    <h2>F5 · State and Recovery Specimen</h2>
+                    <p>Document default, focus, required, valid, invalid, disabled, and a static server-returned error. Keep this section separate from the primary blank form when necessary to avoid misleading users.</p>
+                    <div class="error-summary">
+                        <h3>There is a problem with the fictional submission</h3>
+                        <p><a href="#error-example">Email address needs attention</a></p>
+                    </div>
+                    <div class="field field-error">
+                        <label for="error-example">Email address</label>
+                        <input id="error-example" type="email" value="alex.example" aria-invalid="true" aria-describedby="error-message">
+                        <p id="error-message"><strong>Error:</strong> Enter an address in the format name@example.com.</p>
+                    </div>
+                    <button type="button" disabled>Disabled example</button>
+                </section>
+                <section id="documentation">
+                    <h2>F2 and F6 · Planning and Evidence</h2>
+                    <p>Link your field inventory, state matrix, fictional test-data list, completed test record, and AI disclosure.</p>
+                </section>
+            </main>
+        </body>
+        </html>
