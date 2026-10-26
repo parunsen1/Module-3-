@@ -34,7 +34,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Visible label / question</th>
+                        <th>Visible label / question : </th>
                         <th>Why necessary now?</th>
                         <th>Required?</th>
                         <th>Native control/type</th>
@@ -54,6 +54,123 @@
                         <td>Replace or N/A</td>
                         <td>Replace or none</td>
                         <td>Replace</td>
+                    </tr>
+
+
+
+
+
+
+
+                     <tr>
+                        <td>Name (optional)</td>
+                        <td>Not needed to process a request. Offered so people can be addressed by name if they choose.</td>
+                        <td>No</td>
+                        <td>input type="text"</td>
+                        <td>name and free text</td>
+                        <td>autocomplete</td>
+                        <td>None. Marked optional in the label.</td>
+                        <td>Personal identifier: This was kept optional so a person can respond without giving a name to ensure this is voluntary.</td>
+                    </tr>
+                    <tr>
+                        <td>Email address (required)</td>
+                        <td>Needed to send the requested data or answer a question.</td>
+                        <td>Yes</td>
+                        <td>input type="email"</td>
+                        <td>email or free text</td>
+                        <td>autocomplete</td>
+                        <td>required; The browser checks email format; example shown: name@example.com</td>
+                        <td>Personal contact information. Used only for replying to the request and not shown in presentations or aggregated results.</td>
+                    </tr>
+                    <tr>
+                        <td>ZIP code (required)</td>
+                        <td>Needed to group temperatures by area for the urban heat analysis.</td>
+                        <td>Yes</td>
+                        <td>input type="text"</td>
+                        <td>zip or 5 digits</td>
+                        <td>autocomplete</td>
+                        <td>required; The instruction says to enter 5 digits <form action=""></form> example 85281</td>
+                        <td>Coarse location. A ZIP code is collected instead of a street address to limit how precisely a person can be located. When collected, it will be checked if its a Phoenix ZIP code.</td>
+                    </tr>
+                    <tr>
+                        <td>What would you like to request? (required)</td>
+                        <td>Determines whether the request is for temperature data or for other information.</td>
+                        <td>Yes</td>
+                        <td>input type="radio" group (fieldset and legend)</td>
+                        <td>request_type or temperature-data or additional-info</td>
+                        <td>none</td>
+                        <td>required; only one option can be selected</td>
+                        <td>Low sensitivity. Only the choice is stored.</td>
+                    </tr>
+                    <tr>
+                        <td>Date measured (optional)</td>
+                        <td>Lets the analysis match a reading to the day it was taken.</td>
+                        <td>No</td>
+                        <td>input type="date"</td>
+                        <td>measured_date / YYYY-MM-DD</td>
+                        <td>N/A</td>
+                        <td>None. Only needed if a reading was taken.</td>
+                        <td>Low sensitivity. Optional, people who didn't do the reading can skip it.</td>
+                    </tr>
+                    <tr>
+                        <td>Time measured (optional)</td>
+                        <td>Temperatures change through the day, so the time makes a reading comparable.</td>
+                        <td>No</td>
+                        <td>input type="time"</td>
+                        <td>measured_time / HH:MM</td>
+                        <td>None.</td>
+                        <td>None. Only needed if a reading was taken.</td>
+                        <td>Low sensitivity. Optional.</td>
+                    </tr>
+                    <tr>
+                        <td>Temperature (optional)</td>
+                        <td>The reading itself, which is the data the analysis uses.</td>
+                        <td>No</td>
+                        <td>input type="number"</td>
+                        <td>temperature / number</td>
+                        <td>None.</td>
+                        <td>min="-20", max="150", step="0.1"; example shown: 104</td>
+                        <td>Low sensitivity. Optional.</td>
+                    </tr>
+                    <tr>
+                        <td>Unit (optional)</td>
+                        <td>Prevents mixing up Fahrenheit and Celsius readings.</td>
+                        <td>No</td>
+                        <td>select</td>
+                        <td>unit: fahrenheit or celsius</td>
+                        <td>None.</td>
+                        <td>Choose one option from the list.</td>
+                        <td>Low sensitivity. Optional.</td>
+                    </tr>
+                    <tr>
+                        <td>Where you measured (optional)</td>
+                        <td>Sun, shade, indoor, and vehicle readings differ a lot, so this helps interpret the number.</td>
+                        <td>No</td>
+                        <td>select</td>
+                        <td>measure_location: outdoors-sun, outdoors-shade, indoors, or vehicle</td>
+                        <td>None.</td>
+                        <td>Choose one option from the list.</td>
+                        <td>Low sensitivity. Uses broad categories.</td>
+                    </tr>
+                    <tr>
+                        <td>Details about your request or question (required)</td>
+                        <td>Gives the specifics needed to answer the request.</td>
+                        <td>Yes</td>
+                        <td>textarea</td>
+                        <td>details / free text</td>
+                        <td>None.</td>
+                        <td>required; maxlength="240"; help text explains what to include for each request type</td>
+                        <td>Free text could include personal information. The 240-character limit and so the text information is more concise..</td>
+                    </tr>
+                    <tr>
+                        <td>I understand my responses will be used for presentation and aggregation purposes (required)</td>
+                        <td>Confirms the person knows how their responses will be used before submitting and where it will be used. Serves as a reminder for users.</td>
+                        <td>Yes</td>
+                        <td>input type="checkbox"</td>
+                        <td>consent / agreed</td>
+                        <td>None.</td>
+                        <td>required</td>
+                        <td>Low sensitivity. Records agreement only.</td>
                     </tr>
                 </tbody>
             </table>
