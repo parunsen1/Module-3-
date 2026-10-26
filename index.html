@@ -9,16 +9,34 @@
         <header class="page-header">
             <p class="eyebrow">Application </p>
             <h1>Submit a request for Temperature Data</h1>
-            <p class="lede">This form is for submitting request on temperatures based on your area in phoenix. This is for data collection where we are analyzing if temperatures are within expected ranges which in turn leads to better understanding of urban heat effect and climate change.</p>
+            <p class="lede">This form is for submitting request on temperatures based on your area in Phoenix. This is for data collection where we are analyzing if temperatures are within expected ranges which in turn leads to better understanding of urban heat effect and climate change.</p>
         </header>
         <main>
             <section id="expectations">
-                <h2>F1 · Purpose and Expectations</h2>
-                <p> This form is completely optional and is at the users discretion on completing this form. The email field, location, and text option are all required for this form. The name is completely optional as responses are anonymous. If you have any issues completing this form please contact helpsupport@gmail.com. The result of this form will be used for presentation and aggregation purposes. If you ever feel you were put at risk due to this form, please contact the chair of the human subjects board.   </p>
+                <h2>Purpose and Expectations</h2>
+                <p> This form is voluntary. If you choose to participate, you will be asked to provide your email address, ZIP code, and details about your request. You may also provide your name and measurement details if you have taken a temperature reading (optional).
+                    The audience for this form is Phoenix residents who want to share or request neighborhood temperature data. 
+                    The sections that are marked as (required) must be completed. 
+                    If you have any issues completing this form please contact helpsupport@gmail.com. 
+                    The result of this form will be used for presentation and aggregation purposes. 
+                    If you ever feel you were put at risk due to this form, please contact the chair of the human subjects board.
+                    This form will take about 3-7 minutes to complete. After this is completed, the data will be stored in an excel sheet where we will use the data as evidence if your area is experiencing urban heat island effects.</p>
+            </section>
+         <section id="before-you-start">
+                <h2>Before you start</h2>
+                <p>This form takes about 3 to 7 minutes. Fields marked (required) must be completed. All other fields are optional.</p>
+                <ul>
+                    <li><strong>Email address (required):</strong> required format name@example.com</li>
+                    <li><strong>ZIP code (required)</strong>: enter 5 digits, for example 85281.</li>
+                    <li><strong>Your request (required)</strong>: choose one option.</li>
+                    <li><strong>Details (required)</strong>: up to 240 characters.</li>
+                    <li><strong>Consent (required)</strong>: check the box to confirm how your responses will be used.</li>
+                    <li><strong>Name and measurement details (optional)</strong>: skip these if you did not take a temperature reading.</li>
+                </ul>
             </section>
             <form action="" method="get">
                 <fieldset>
-                    <legend>F3 · Contact information</legend>
+                    <legend>Contact information</legend>
                     <p class="help">Please provide your contact information. Name is optional.</p>
                     <div class="field">
                         <label for="name">Name</label>
@@ -28,21 +46,76 @@
                         <label for="email">Email address (required)</label>
                         <input id="email" name="email" type="email" autocomplete="email" required >
                     </div>
+                     <div class="field">
+                        <label for="zip">ZIP code (required)</label>
+                        <input id="zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" required aria-describedby="zip-help">
+                        <p class="help" id="zip-help">Enter the 5-digit ZIP code of your neighborhood. Example: 85281</p>
+                    </div>
                 </fieldset>
                 <fieldset>
-                    <legend>F3 · Request choices</legend>
-                    <p class="help">Use an appropriate radio, checkbox, or select structure for the task.</p>
+                    <legend>Your request (required)</legend>
+                    <p class="help">What would you like to request?</p>
                     <label class="choice">
-                        <input type="radio" name="request_type" value="option-a"> Request Temperature Data</label>
-                        <label class="choice"><input type="radio" name="request_type" value="option-b"> Request Additional Information</label>
-                    </fieldset>
-                    <div class="field">
-                        <label for="details">Request details</label>
-                        <p class="help" id="details-help">Explain the expected content and any limit before entry.</p>
-                        <textarea id="details" name="details" aria-describedby="details-help"></textarea>
+                        <input type="radio" name="request_type" value="temperature-data" required> Request Temperature Data
+                    </label>
+                    <label class="choice">
+                        <input type="radio" name="request_type" value="additional-info" required> Request Additional Information
+                    </label>
+                </fieldset>
+             <fieldset>
+                    <legend>Measurement details (optional)</legend>
+                    <p class="help">Complete this section only if you took a temperature reading.</p>
+                    <div class="paired-fields">
+                        <div class="field">
+                            <label for="measured-date">Date measured (optional)</label>
+                            <input id="measured-date" name="measured_date" type="date">
+                        </div>
+                        <div class="field">
+                            <label for="measured-time">Time measured (optional)</label>
+                            <input id="measured-time" name="measured_time" type="time">
+                        </div>
                     </div>
-                    <button type="submit">Submit Request</button>
-                </form>
+                    <div class="paired-fields">
+                        <div class="field">
+                            <label for="temperature">Temperature (optional)</label>
+                            <input id="temperature" name="temperature" type="number" min="-20" max="150" step="0.1" aria-describedby="temperature-help">
+                            <p class="help" id="temperature-help">Example: 104</p>
+                        </div>
+                        <div class="field">
+                            <label for="unit">Unit (optional)</label>
+                            <select id="unit" name="unit">
+                                <option value="">Choose a unit</option>
+                                <option value="fahrenheit">°F</option>
+                                <option value="celsius">°C</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="measure-location">Where you measured (optional)</label>
+                        <select id="measure-location" name="measure_location">
+                            <option value="">Choose a location</option>
+                            <option value="outdoors-sun">Outdoors, in the sun</option>
+                            <option value="outdoors-shade">Outdoors, in the shade</option>
+                            <option value="indoors">Indoors</option>
+                            <option value="vehicle">Inside a vehicle</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Details and consent</legend>
+                    <div class="field">
+                        <label for="details">Oh! I actually have a question about the temperature in my neighborhood. (required)</label>
+                        <p class="help" id="details-help">Based on the option you selected above, please provide details regarding the question. For example, if you choose the first option, please provide the specific temperature and time that you took the temperature. If you choose the second option, please mention your questions or way of contact. 240 characters maximum.</p>
+                        <textarea id="details" name="details" maxlength="240" required aria-describedby="details-help"></textarea>
+                    </div>
+                    <label class="choice">
+                        <input type="checkbox" name="consent" value="agreed" required> I understand my responses will be used for presentation and aggregation purposes (required)
+                    </label>
+                </fieldset>
+
+                <button type="submit">Submit Request</button>
+            </form>
                 <section id="states">
                     <h2>F5 · State and Recovery Specimen</h2>
                     <p>Document default, focus, required, valid, invalid, disabled, and a static server-returned error. Keep this section separate from the primary blank form when necessary to avoid misleading users.</p>
@@ -53,8 +126,7 @@
                     <div class="field field-error">
                         <label for="error-example">Email address</label>
                         <input id="error-example" type="email" value="alex.example" aria-invalid="true" aria-describedby="error-message">
-                        <p id="error-message"><strong>Error:</strong> Enter an address in the format name@example.com.</p>
-                    </div>
+                        <p id="error-message"><strong>Email address:</strong> "alex.example" is missing the @ and the domain. Enter it like name@example.com.</p>
                     <button type="button" disabled>Disabled example</button>
                 </section>
                 <section id="documentation">
